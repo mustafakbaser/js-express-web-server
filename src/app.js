@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const { title } = require('process')
 
 //nodemon src/app.js -e js,hbs
 
@@ -54,15 +55,26 @@ app.get('/weather', (req, res) => {
     })
 })
 
-
 // 404 Page
 app.get('*', (req, res) => {
-    res.send('My 404 Page')
+    res.render('404', {
+        title: '404',
+        name: 'Mustafa Baser',
+        errorMessage: 'This page cannot be found!'
+    })
 })
 
 //Matching anything after help/
 app.get('/help/*', (req, res) => {
     res.send('Help article cannot be found!')
+})
+
+app.get('/help/*', (req, res)=>{
+    res.render('404', {
+        title: '404',
+        name: 'Mustafa Baser',
+        errorMessage: 'Help article cannot be found!'
+    })
 })
 
 
