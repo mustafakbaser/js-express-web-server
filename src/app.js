@@ -48,12 +48,7 @@ app.get('/help', (req, res) => {
     })
 })
 
-app.get('/weather', (req, res) => {
-    res.send({
-        location: 'Izmir, Turkey',
-        forecast: 'Partly cloud and 3 degrees.'
-    })
-})
+
 
 // 404 Page
 app.get('*', (req, res) => {
