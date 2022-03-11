@@ -60,6 +60,11 @@ app.get('*', (req, res) => {
     res.send('My 404 Page')
 })
 
+//Matching anything after help/
+app.get('/help/*', (req, res) => {
+    res.send('Help article cannot be found!')
+})
+
 
 /*
 app.get('', (req, res) => { // req = request, res = response
