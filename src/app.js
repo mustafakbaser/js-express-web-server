@@ -34,14 +34,16 @@ app.get('', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About Page'
+        title: 'About Page',
+        name: 'Mustafa Baser'
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help Page',
-        help: 'Hello, contact me to get support!'
+        help: 'Hello, contact me to get support!',
+        name: 'Mustafa Baser'
     })
 })
 
@@ -50,6 +52,12 @@ app.get('/weather', (req, res) => {
         location: 'Izmir, Turkey',
         forecast: 'Partly cloud and 3 degrees.'
     })
+})
+
+
+// 404 Page
+app.get('*', (req, res) => {
+    res.send('My 404 Page')
 })
 
 
