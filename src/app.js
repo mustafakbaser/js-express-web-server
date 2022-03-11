@@ -5,15 +5,16 @@ console.log(__dirname) //directory name, to get the directory path
 
 const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
-
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.') //3000 default port
-})
+app.use(express.static(publicDirectoryPath))
 
 app.set('view engine', 'hbs')
 
+const viewsPath = path.join(__dirname,'../views') //if we need to change views folder name, we need to define it here (for example templates) 
+app.set('views', viewsPath) //also need to connect with viewsPath for using app.set('views', viewsPath)
 
-app.use(express.static(publicDirectoryPath))
+app.listen(3000, () => {
+    console.log('SERVER: Server is up on port 3000.') //3000 default port
+})
 
 app.get('/index', (req, res) => {
     res.render('index', {
