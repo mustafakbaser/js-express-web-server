@@ -8,10 +8,32 @@ const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000.') //3000 default port
-}) 
+})
+
+app.set('view engine', 'hbs')
 
 
 app.use(express.static(publicDirectoryPath))
+
+app.get('/index', (req, res) => {
+    res.render('index', {
+        title: 'Weather App',
+        name: 'Mustafa Baser'
+    })
+})
+
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: 'About Page'
+    })
+})
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        title: 'Help',
+        help: 'Hello, contact me to get support!'
+    })
+})
 
 app.get('/weather', (req, res) => {
     res.send({
