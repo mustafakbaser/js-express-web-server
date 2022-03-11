@@ -1,6 +1,13 @@
+const path = require('path')
 const express = require('express')
 
+console.log(__dirname) //directory name, to get the directory path
+
 const app = express()
+const publicDirectoryPath = path.join(__dirname, '../public')
+
+app.use(express.static(publicDirectoryPath))
+
 
 app.get('', (req, res) => { // req = request, res = response
     res.send('<h1>This is a title</h1>')
