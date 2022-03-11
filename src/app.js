@@ -48,7 +48,18 @@ app.get('/help', (req, res) => {
     })
 })
 
+app.get('/weather', (req, res) => {
+    res.send({
+        location: 'Izmir, Turkey',
+        forecast: 'Partly cloud and 3 degrees.'
+    })
+})
 
+app.get('/products', (req, res) => {
+    res.send({
+        products: []
+    })
+})
 
 // 404 Page
 app.get('*', (req, res) => {
@@ -71,22 +82,3 @@ app.get('/help/*', (req, res)=>{
         errorMessage: 'Help article cannot be found!'
     })
 })
-
-
-/*
-app.get('', (req, res) => { // req = request, res = response
-    res.send('<h1>This is a title</h1>')
-})
-
-app.get('/help', (req, res) => {
-    res.send({
-        name: 'Mustafa',
-        age: 25,
-        title: 'Software Engineer'
-
-    })
-})
-
-app.get('/about', (req, res) => {
-    res.send('<h1>About myself</h1><p>Hello, my name is Mustafa. This is my about page.</p>')
-})*/
