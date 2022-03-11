@@ -28,21 +28,21 @@ app.listen(3000, () => {
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather App',
+        title: 'Home Page',
         name: 'Mustafa Baser'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About Page',
+        title: 'About Me',
         name: 'Mustafa Baser'
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title: 'Help Page',
+        title: 'Help - FAQ',
         help: 'Hello, contact me to get support!',
         name: 'Mustafa Baser'
     })
