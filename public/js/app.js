@@ -14,24 +14,21 @@ const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
 
-weatherForm.addEventListener('submit', (e) => {
-        e.preventDefault() //Prevent default behaviour
-
+    weatherForm.addEventListener('submit', (e) => {
+        e.preventDefault()//Prevent default behaviour
+    
         const location = search.value
+    
+        messageOne.textContent = 'Loading...'
+        messageTwo.textContent = ''
+    
         fetch('/weather?address=' + location).then((response) => {
             response.json().then((data) => {
-                if(data.error){
+                if (data.error) {
                     messageOne.textContent = data.error
-                    messageTwo.textContent = location.toLocaleUpperCase() + ' cannot be found!'
-                }else if(location === ''){
-                    messageOne.textContent = 'Location cannot be null.'
-                    messageTwo.textContent = ' '
-                } 
-                else{
+                } else {
                     messageOne.textContent = data.location
                     messageTwo.textContent = data.forecast
-                    console.log(data.location)
-                    console.log(data.forecast)
                 }
             })
         })

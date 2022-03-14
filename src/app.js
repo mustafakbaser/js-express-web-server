@@ -53,7 +53,7 @@ app.get('/help', (req, res) => {
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({
-            error: 'You must specify an address!'
+            error: 'You must provide an address!'
         })
     }
 
@@ -61,25 +61,20 @@ app.get('/weather', (req, res) => {
         if (error) {
             return res.send({ error })
         }
+
         forecast(latitude, longitude, (error, forecastData) => {
             if (error) {
                 return res.send({ error })
             }
+
             res.send({
                 forecast: forecastData,
-                location: location,
+                location,
                 address: req.query.address
             })
         })
     })
-    // res.send({
-    //     location: 'Izmir, Turkey',
-    //     forecast: 'Partly cloud and 3 degrees.',
-    //     address: req.query.address
-    // })
 })
-
-//weather?address=izmir
 
 app.get('/products', (req, res) => {
     if (!req.query.search) {
