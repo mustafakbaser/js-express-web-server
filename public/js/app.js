@@ -25,6 +25,7 @@ weatherForm.addEventListener('submit', (e) => {
                     messageTwo.textContent = location.toLocaleUpperCase() + ' cannot be found!'
                 }else if(location === ''){
                     messageOne.textContent = 'Location cannot be null.'
+                    messageTwo.textContent = ' '
                 } 
                 else{
                     messageOne.textContent = data.location
