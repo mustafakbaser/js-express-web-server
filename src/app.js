@@ -8,6 +8,7 @@ const forecast = require('./utils/forecast')
 
 
 const app = express()
+const port = process.env.PORT || 3000
 
 //Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -23,8 +24,8 @@ hbs.registerPartials(partialsPath)
 app.use(express.static(publicDirectoryPath))
 
 
-app.listen(3000, () => {
-    console.log('SERVER: Server is up on port 3000.') //3000 default port
+app.listen(port, () => {
+    console.log('SERVER: Server is up on port ' + port) //3000 default port
 })
 
 app.get('', (req, res) => {
