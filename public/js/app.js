@@ -25,9 +25,6 @@ const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
 
-messageOne.textContent = 'Form Javascript'
-
-/*
 weatherForm.addEventListener('submit', (e) => {
         e.preventDefault() //Prevent default behaviour
 
@@ -35,12 +32,14 @@ weatherForm.addEventListener('submit', (e) => {
         fetch('http://localhost:3000/weather?address=' + location).then((response) => {
             response.json().then((data) => {
                 if(data.error){
-                    console.log(data.error)
+                    messageOne.textContent = data.error
+                    messageTwo.textContent = location.toLocaleUpperCase() + ' cannot be found!'
                 }else{
+                    messageOne.textContent = data.location
+                    messageTwo.textContent = data.forecast
                     console.log(data.location)
                     console.log(data.forecast)
                 }
             })
         })
     })
-*/
