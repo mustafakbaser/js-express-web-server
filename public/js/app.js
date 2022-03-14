@@ -22,8 +22,13 @@ fetch('http://localhost:3000/weather?address=boston').then((response) => {
 //Search Form
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
+const messageOne = document.querySelector('#message-1')
+const messageTwo = document.querySelector('#message-2')
 
-    weatherForm.addEventListener('submit', (e) => {
+messageOne.textContent = 'Form Javascript'
+
+/*
+weatherForm.addEventListener('submit', (e) => {
         e.preventDefault() //Prevent default behaviour
 
         const location = search.value
@@ -38,3 +43,4 @@ const search = document.querySelector('input')
             })
         })
     })
+*/
